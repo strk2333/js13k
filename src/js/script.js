@@ -1,3 +1,3 @@
 import Render from './render';
 
-new Render().test();
+Render.test();

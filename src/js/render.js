@@ -39,4 +39,4 @@ class Render {
   }
 }
 
-export default Render;
+export default new Render();
