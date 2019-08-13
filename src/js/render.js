@@ -45,6 +45,7 @@ class Render {
       const frame3 = atlas3.frame(Point(0), Point(32));
       img = Sprite(frame3);
       img.position.set(100, 100);
+      img.scale.set(2);
       layer1.add(img);
     }
     tImg.src = 'images/witch.png';
