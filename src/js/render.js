@@ -26,6 +26,7 @@ class Render {
     const atlas = scene.texture(makeDebris());
     const frame = atlas.frame(Point(), Point(32));
     const sprite = Sprite(frame);
+    sprite.position.set(20, 20);
 
     // bg
     const atlas2 = scene.texture(drawBg());
@@ -36,7 +37,6 @@ class Render {
     const layer1 = scene.layer(1);
     layer0.add(bg);
     layer1.add(sprite);
-
     // img
     const tImg = new Image();
     let img, atlas3;
@@ -44,21 +44,23 @@ class Render {
       atlas3 = scene.texture(getImage(tImg));
       const frame3 = atlas3.frame(Point(0), Point(32));
       img = Sprite(frame3);
+      img.position.set(100, 100);
       layer1.add(img);
     }
     tImg.src = 'images/witch.png';
 
     let count = 0;
+    let time = 0;
     const loop = () => {
       scene.resize();
       // const { width, height } = view; // or scene.gl.canvas
-      sprite.position.set(20, 20);
-      // 调速 count % 3 === 0
-      if (img && this.playing && count % 3 === 0) {
+
+      // 调速 time % n === 0
+      if (img && this.playing && time % 5 === 0) {
         img.frame = atlas3.frame(Point(count % 8 * 32, 32 * 2), Point(32));
-        img.position.set(100, 100);
+        count++;
       }
-      count++;
+      time++;
       scene.render();
       requestAnimationFrame(loop);
     };
