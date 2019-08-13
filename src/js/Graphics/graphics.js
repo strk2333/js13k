@@ -8,8 +8,8 @@ export const drawBg = () => {
   const ctx = canvas.getContext('2d');
 
   const gap = 10;
-  ctx.strokeStyle='#000000';
-  ctx.fillStyle='#ffffff';
+  ctx.strokeStyle = '#000000';
+  ctx.fillStyle = '#ffffff';
   ctx.rect(gap, gap, DEVICE_WIDTH - gap * 2, DEVICE_HEIGHT - gap * 2);
   ctx.fill();
   ctx.stroke();
@@ -45,13 +45,11 @@ export const makeDebris = () => {
   return canvas;
 };
 
-export const getImage = src => {
+export const getImage = (img, size = 256) => {
   const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
   const ctx = canvas.getContext('2d');
-  const img = document.createElement('img');
-  img.src = src;
-  img.onload = () => {
-    ctx.drawImage(img, 0, 0);
-  }
-  return canvas
+  ctx.drawImage(img, 0, 0);
+  return canvas;
 }
