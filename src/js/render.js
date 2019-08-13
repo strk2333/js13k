@@ -29,7 +29,7 @@ class Render {
 
     // bg
     const atlas2 = scene.texture(drawBg());
-    const frame2 = atlas2.frame(Point(), Point(SPRITE_MAX));
+    const frame2 = atlas2.frame(Point(), Point(DEVICE_WIDTH, DEVICE_HEIGHT));
     const bg = Sprite(frame2);
 
     const layer0 = scene.layer(0);
